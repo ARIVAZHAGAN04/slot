@@ -24,7 +24,23 @@ Add your timetable using ```<td>``` tag.
 Execute the program using runserver command.
 
 ## PROGRAM
+model.py
+from django.contrib import admin
+from django.db import models
+class Books(models.Model):
+    name=models.CharField(max_length=50);
+    author=models.CharField(max_length=20);
+    price=models.IntegerField();
+    dateofpublication=models.DateField();
+    genre=models.CharField(max_length=30);
+    code=models.CharField(max_length=20,primary_key=True);
+class bookAdmin(admin.ModelAdmin):
+      list_display=("name","author","price","dateofpublication","genre","code");
 
+admin.py
+from django.contrib import admin
+from .models import book,bookAdmin
+admin.site.register(book,bookAdmin)
 
 ## OUTPUT
 
